@@ -4,11 +4,17 @@ const session = require('express-session')
 const helmet = require('helmet')
 const dotenv = require('dotenv').config()
 const compression = require('compression')
-const knex = require('knex');
+
+// import database configuration files and models
+const db = require('./models/index').sequelize;
+const Sequelize = require('./models/index').Sequelize;
+const Team = require('./models/team');
+
+
+
 // route handlers
 const teamsRoute = require('./routes/teams');
 const fixturesRoute = require('./routes/fixtures');
-const homeRoute = require('./routes/home')
 
 // initialize express application
 const app = express()
@@ -17,8 +23,8 @@ app.use(compression())
 
 // routing middleware
 app.use('/teams',teamsRoute);
-app.use('/fixtures',fixturesRoute)
-app.use(homeRoute);
+app.use('/fixtures',fixturesRoute);
 
+// setting port and starting server
 const PORT = process.env.PORT || 4000;
 const server = app.listen(PORT,()=>{console.log(`App running on port ${PORT}`)});

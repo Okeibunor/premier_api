@@ -1,0 +1,9 @@
+{
+  "development": {
+    "username": "favour",
+    "password": "ilove1998",
+    "database": "leaguedb",
+    "host": "localhost",
+    "dialect": "postgres"
+  }
+}

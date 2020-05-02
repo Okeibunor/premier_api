@@ -1,8 +1,12 @@
 const express = require('express');
 const router = express.Router();
+const db = require('../models/index').sequelize;
+const Sequelize = require('../models/index').Sequelize;
+const Team = require('../models/team');
+
 
 router.get('/',(req,res)=>{
-  res.send('view all teams');
+  Team.findAll().then(team=>res.send (team)).catch(err=>res.send(err));
 })
 
 router.get('/:id',(req,res)=>{

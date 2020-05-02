@@ -1,9 +1,9 @@
 const express = require("express");
 const router = express.Router();
-const models = require("../models/index");
+const models = require("../models/fixtures");
 
 router.get('/',(req,res)=>{
-  res.send(models.Sequelize);
+
 })
 
 module.exports = router;

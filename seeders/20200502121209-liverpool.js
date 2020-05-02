@@ -6,7 +6,7 @@ module.exports = {
       name: 'Liverpool',
       abbreviation: 'LIV',
       createdAt: new Date(),
-      updateAt:new Date()
+      updatedAt:new Date()
     }], {});
   },
 
