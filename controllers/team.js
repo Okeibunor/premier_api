@@ -1,6 +1,4 @@
 const express = require('express');
-const db = require('../models/index').sequelize;
-const Sequelize = require('../models/index').Sequelize;
 const Team = require('../models/team');
 
 

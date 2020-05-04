@@ -7,9 +7,9 @@ const compression = require('compression')
 const bodyParser = require('body-parser');
 
 // import database configuration files and models
-const db = require('./models/index').sequelize;
-const Sequelize = require('./models/index').Sequelize;
-const Team = require('./models/team');
+// const db = require('./models/index').sequelize;
+// const Sequelize = require('./models/index').Sequelize;
+// const Team = require('./models/team');
 
 // route handlers
 const teamsRoute = require('./routes/teams');
