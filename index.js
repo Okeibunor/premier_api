@@ -14,7 +14,7 @@ const bodyParser = require('body-parser');
 // route handlers
 const teamsRoute = require('./routes/teams');
 const fixturesRoute = require('./routes/fixtures');
-
+const signupRoute = require('./routes/signup')
 // initialize express application
 const app = express()
 app.use(helmet())
@@ -29,6 +29,7 @@ app.use(bodyParser.json())
 // routing middleware
 app.use('/teams',teamsRoute);
 app.use('/fixtures',fixturesRoute);
+app.use('/signup',signupRoute)
 
 // setting port and starting server
 const PORT = process.env.PORT || 4000;

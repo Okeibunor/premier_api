@@ -1,7 +1,6 @@
-const express = require('express');
 const Team = require('../models/team');
-
-
+const db = require('../models/index').sequelize
+const {v4:uuidv4} = require('uuid');
 module.exports = {
   findAll:(req,res)=>{
     Team.findAll().then(teams=>res.json(teams)).catch(err=>res.json(err));
@@ -19,6 +18,7 @@ module.exports = {
     const t = await db.transaction();
     try{
       const team = await Team.create({
+        id:uuidv4(),
         name:req.body.name,
         abbreviation:req.body.abbreviation
       },{transaction:t})

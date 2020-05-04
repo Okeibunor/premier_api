@@ -4,18 +4,14 @@ module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.bulkInsert('Teams', [
       { 
-        id:uuidv4({
-          random:Number[16]
-        }),
+        id:uuidv4(),
         name: "Liverpool",
         abbreviation:"LIV",
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
-        id:uuidv4({
-          random:Number[16]
-        }),
+        id:uuidv4(),
         name: "Chelsea",
         abbreviation:"CHE",
         createdAt: new Date(),

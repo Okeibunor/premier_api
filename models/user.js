@@ -17,6 +17,7 @@ const Sequelize = require('./index').Sequelize;
 const User = db.define('User',{
   id:{
     type:Sequelize.STRING,
+    primaryKey:true
   },
   email:{
     type:Sequelize.STRING
