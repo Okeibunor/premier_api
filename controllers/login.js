@@ -19,7 +19,9 @@ module.exports = (req,res)=>{
     }else{
       bcrypt.compare(user_password,result.password,(error,response)=>{
         if(response){
-          token = jwt.sign(result.email,process.env.JWT_SECRET)
+          token = jwt.sign(result.email,process.env.JWT_SECRET,{
+            expiresIn:"1h"
+          })
           return res.status(200).json({
             response,
             token
