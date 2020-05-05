@@ -24,7 +24,6 @@ module.exports = (req,res)=>{
             response,
             token
           });
-
         }else{
           return res.status(401).json({
             message:"Login Failed"
