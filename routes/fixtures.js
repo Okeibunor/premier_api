@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
+const fixtureController = require('../controllers/fixtures');
+const auth = require('../middleware/auth')
 
-router.get('/',(req,res)=>{
-  res.send('view all fixtures');
-})
+router.get('/',auth,fixtureController)
 
 router.get('/:id',(req,res)=>{
   res.send(`Get fixture with id:${req.params.id}`);

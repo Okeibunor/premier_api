@@ -1,12 +1,19 @@
-const Sequelize = require('sequelize');
-const sequelize = new Sequelize('postgres://favour:ilove1998@localhost/leaguedb')
-sequelize
-  .authenticate()
-  .then(() => {
-    console.log('Connection has been established successfully.');
-  })
-  .catch(err => {
-    console.error('Unable to connect to the database:', err);
-  });
-
-module.exports = sequelize;
+'use strict';
+module.exports = (sequelize, DataTypes) => {
+  const fixtures = sequelize.define('fixtures', {
+    id: {
+      type:DataTypes.STRING,
+      primaryKey:true
+    },
+    home_team: DataTypes.STRING,
+    away_team: DataTypes.STRING,
+    home_score: DataTypes.INTEGER,
+    away_score: DataTypes.INTEGER,
+    match_time: DataTypes.DATE,
+    finished: DataTypes.BOOLEAN
+  }, {});
+  fixtures.associate = function(models) {
+    // associations can be defined here
+  };
+  return fixtures;
+};
