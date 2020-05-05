@@ -1,19 +1,20 @@
 'use strict';
 const {v4:uuidv4} = require('uuid');
+const hash = require('../controllers/bcrypt').hashPassword;
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.bulkInsert('Users', [
       {
         id:uuidv4(),
         email: "favourokeibunor@gmail.com",
-        password:"password",
+        password:hash("password"),
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
         id:uuidv4(),
         email: "emmaokeibunor@gmail.com",
-        password:"secret",
+        password:hash('secret'),
         createdAt: new Date(),
         updatedAt: new Date()
       }], {});
