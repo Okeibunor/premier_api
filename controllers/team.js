@@ -1,6 +1,7 @@
 const Team = require('../models/team');
 const db = require('../models/index').sequelize
 const {v4:uuidv4} = require('uuid');
+
 module.exports = {
   findAll:(req,res)=>{
     Team.findAll().then(teams=>res.json(teams)).catch(err=>res.json(err));

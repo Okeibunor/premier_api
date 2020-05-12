@@ -12,6 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     match_time: DataTypes.DATE,
     finished: DataTypes.BOOLEAN
   }, {});
+  
   fixtures.associate = function(models) {
     // associations can be defined here
   };

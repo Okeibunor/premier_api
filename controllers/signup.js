@@ -6,6 +6,7 @@ module.exports = async(req,res)=>{
   // define signup parameters
   user_email = req.body.email;
   user_password = hash(req.body.password);
+  user_role = req.body.role || "user"
   user_id = uuidv4();
   User.findAll({
     where:{
@@ -18,7 +19,7 @@ module.exports = async(req,res)=>{
     }
     });  
   }
-
+// definition of the addUser() function
 addUser = async()=>{
   const db = require('../models/index').sequelize
   // save user data to database after creating transaction
@@ -27,7 +28,8 @@ addUser = async()=>{
     const user = await User.create({
       id: user_id,
       email:user_email,
-      password: user_password
+      password: user_password,
+      role:user_role
     },{transaction:t})
     .then(console.log({"message":"New User successfully created"}))
     .catch(err => console.log(err));

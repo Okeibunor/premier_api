@@ -8,6 +8,7 @@ module.exports = {
         id:uuidv4(),
         email: "favourokeibunor@gmail.com",
         password:hash("password"),
+        role:"admin",
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -15,6 +16,7 @@ module.exports = {
         id:uuidv4(),
         email: "emmaokeibunor@gmail.com",
         password:hash('secret'),
+        role:"user",
         createdAt: new Date(),
         updatedAt: new Date()
       }], {});

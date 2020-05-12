@@ -1,6 +1,6 @@
 const User = require('../models/user');
 const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken')
+const jwt = require('jsonwebtoken');
 
 module.exports = (req,res)=>{
   user_email = req.body.email,
@@ -19,7 +19,9 @@ module.exports = (req,res)=>{
     }else{
       bcrypt.compare(user_password,result.password,(error,response)=>{
         if(response){
-          token = jwt.sign(result.email,process.env.JWT_SECRET)
+          token = jwt.sign({email:result.email,role:result.role},process.env.JWT_SECRET,{
+            expiresIn:'1h'
+          })
           return res.status(200).json({
             response,
             token
